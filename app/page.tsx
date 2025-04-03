@@ -49,32 +49,32 @@ export default function Home() {
             <ComponentCard
               title="Buttons"
               description="Various button styles including primary, secondary, outline, and ghost variants."
-              href="/components/buttons"
+              href="/components/buttons/button"
             />
             <ComponentCard
               title="Cards"
               description="Versatile card components for displaying content in a contained format."
-              href="/components/cards"
+              href="/components/data-display/card"
             />
             <ComponentCard
               title="Forms"
               description="Form components including inputs, checkboxes, radios, and select menus."
-              href="/components/forms"
+              href="/components"
             />
             <ComponentCard
               title="Navigation"
               description="Navigation components including menus, breadcrumbs, and pagination."
-              href="/components/navigation"
+              href="/components"
             />
             <ComponentCard
               title="Modals"
               description="Dialog and modal components for displaying content in an overlay."
-              href="/components/modals"
+              href="/components"
             />
             <ComponentCard
-              title="Data Display"
+              title="Data-Display"
               description="Components for displaying data including tables, lists, and stats."
-              href="/components/data-display"
+              href="/components"
             />
           </div>
           <div className="mx-auto text-center md:max-w-[58rem]">
