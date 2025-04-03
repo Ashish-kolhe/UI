@@ -43,7 +43,7 @@ export default function ComponentsPage() {
         />
 
         <ComponentSection
-          title="Data Display"
+          title="Data-Display"
           description="Components for displaying data."
           components={[
             { name: "Table", description: "Data table with sorting and pagination." },
