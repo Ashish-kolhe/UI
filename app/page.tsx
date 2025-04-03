@@ -94,36 +94,32 @@ export default function Home() {
           </p>
           <div className="flex items-center gap-4">
             <Link
-              href="https://twitter.com"
-              target="_blank"
-              rel="noreferrer"
+              href="https://x.com/AshishKolhe_"
+             
               className="text-muted-foreground hover:text-foreground"
             >
               <Twitter className="h-5 w-5" />
               <span className="sr-only">Twitter</span>
             </Link>
             <Link
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
+              href="https://www.instagram.com/ashishkolhe_/"
+              
               className="text-muted-foreground hover:text-foreground"
             >
               <Instagram className="h-5 w-5" />
               <span className="sr-only">Instagram</span>
             </Link>
             <Link
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noreferrer"
+              href="https://www.linkedin.com/in/ashish-kolhe-b4800b343"
+             
               className="text-muted-foreground hover:text-foreground"
             >
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
             </Link>
             <Link
-              href="https://github.com"
-              target="_blank"
-              rel="noreferrer"
+              href="https://github.com/Ashish-kolhe"
+             
               className="text-muted-foreground hover:text-foreground"
             >
               <Github className="h-5 w-5" />
