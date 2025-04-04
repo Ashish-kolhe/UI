@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/site-header"
 import type { Metadata } from "next"
+import Link from "next/link"
 import {  Github, Instagram, Linkedin, Twitter } from "lucide-react"
 export const metadata: Metadata = {
   title: "Installation - UI Library",
