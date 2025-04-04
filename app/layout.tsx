@@ -8,7 +8,9 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "UI Component Library",
   description: "A modern UI component library, By Ashish.",
-    generator: 'v0.dev'
+  icons: {
+    icon: "./favicon.ico", 
+  }
 }
 
 export default function RootLayout({
