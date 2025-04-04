@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ComponentSection } from "@/components/component-section"
-import { MainNav } from "@/components/main-nav"
+
 import {  Github, Instagram, Linkedin, Twitter } from "lucide-react"
+import { SiteHeader } from "@/components/site-header"
 export const metadata: Metadata = {
   title: "Components - UI Library",
   description: "Browse all UI components in our library",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 export default function ComponentsPage() {
   return (
     <div className="container py-12 md:py-16">
-      <MainNav/>
+  <SiteHeader/>
       <div className="mx-auto max-w-5xl space-y-12">
         <div className="space-y-4">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Components</h1>
