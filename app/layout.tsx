@@ -6,8 +6,8 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "UI Library",
-  description: "A modern UI component library with 100+ components, By Ashish.",
+  title: "UI Component Library",
+  description: "A modern UI component library, By Ashish.",
     generator: 'v0.dev'
 }
 

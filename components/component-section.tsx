@@ -7,6 +7,7 @@ interface ComponentSectionProps {
   components: {
     name: string
     description: string
+    href: string
   }[]
 }
 
@@ -19,10 +20,7 @@ export function ComponentSection({ title, description, components }: ComponentSe
       </div>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {components.map((component) => (
-          <Link
-            key={component.name}
-            href={`/components/${title.toLowerCase()}/${component.name.toLowerCase().replace(/\s+/g, "-")}`}
-          >
+          <Link key={component.name} href={component.href}>
             <div className="group rounded-lg border p-5 transition-colors hover:bg-muted/50">
               <div className="space-y-2">
                 <h3 className="font-medium">{component.name}</h3>

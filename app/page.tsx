@@ -49,12 +49,12 @@ export default function Home() {
             <ComponentCard
               title="Buttons"
               description="Various button styles including primary, secondary, outline, and ghost variants."
-              href="/components/buttons/button"
+              href="/components"
             />
             <ComponentCard
               title="Cards"
               description="Versatile card components for displaying content in a contained format."
-              href="/components/data-display/card"
+              href="/components"
             />
             <ComponentCard
               title="Forms"
@@ -72,7 +72,7 @@ export default function Home() {
               href="/components"
             />
             <ComponentCard
-              title="Data-Display"
+              title="Data Display"
               description="Components for displaying data including tables, lists, and stats."
               href="/components"
             />
@@ -102,7 +102,7 @@ export default function Home() {
               <span className="sr-only">Twitter</span>
             </Link>
             <Link
-              href="https://www.instagram.com/ashishkolhe_/"
+              href="https://instagram.com/ashishkolhe_"
               
               className="text-muted-foreground hover:text-foreground"
             >
