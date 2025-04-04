@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function ComponentsPage() {
   return (
-    <div className="container py-12 md:py-16">
+    <div className="container ">
   <SiteHeader/>
-      <div className="mx-auto max-w-5xl space-y-12">
+      <div className="mx-auto max-w-5xl space-y-12 pt-4">
         <div className="space-y-4">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Components</h1>
           <p className="text-lg text-muted-foreground max-w-3xl">

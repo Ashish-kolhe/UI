@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { SiteHeader } from "@/components/site-header"
 
 export const metadata: Metadata = {
   title: "Documentation - UI Library",
@@ -9,8 +10,9 @@ export const metadata: Metadata = {
 
 export default function DocsPage() {
   return (
-    <div className="container py-12 md:py-16">
-      <div className="mx-auto max-w-5xl space-y-12">
+    <div className="container ">
+      <SiteHeader/>
+      <div className="mx-auto max-w-5xl space-y-12 pt-4">
         <div className="space-y-4">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Documentation</h1>
           <p className="text-lg text-muted-foreground max-w-3xl">
