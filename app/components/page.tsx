@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ComponentSection } from "@/components/component-section"
 import { MainNav } from "@/components/main-nav"
-
+import {  Github, Instagram, Linkedin, Twitter } from "lucide-react"
 export const metadata: Metadata = {
   title: "Components - UI Library",
   description: "Browse all UI components in our library",
