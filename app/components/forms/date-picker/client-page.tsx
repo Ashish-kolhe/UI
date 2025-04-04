@@ -1,5 +1,6 @@
+"use client"
 import React from "react"
-;("use client")
+
 
 import { ComponentPreview } from "@/components/component-preview"
 import { Button } from "@/components/ui/button"
