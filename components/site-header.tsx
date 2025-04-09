@@ -101,7 +101,7 @@ export function SiteHeader() {
 
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="https://github.com/yourusername/uiforu"
+              href="https://github.com/Ashish-kolhe/UI"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-300 focus-visible:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-blue-600 text-white hover:bg-blue-700 h-10 py-2 px-4 group relative overflow-hidden"

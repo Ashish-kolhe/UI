@@ -19,8 +19,7 @@ export default function Home() {
               Modern UI Component Library
             </h1>
             <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-              A comprehensive collection of 100+ beautiful UI components for your next project. Available in HTML, JSX,
-              and TSX formats.
+              A comprehensive collection of beautiful UI components for your next project.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/components">
