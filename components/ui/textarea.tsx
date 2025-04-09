@@ -1,21 +1,47 @@
-import React from "react"
-import { cn } from "@/lib/utils"
+"use client"
 
-export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+import { useId } from "react"
 
-const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(({ className, ...props }, ref) => {
+export function Textarea({
+  value,
+  onChange,
+  placeholder,
+  disabled = false,
+  readOnly = false,
+  label,
+  error,
+  className = "",
+  rows = 4,
+  ...props
+}) {
+  const id = useId()
+
   return (
-    <textarea
-      className={cn(
-        "flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-        className,
+    <div className={className}>
+      {label && (
+        <label htmlFor={id} className={`block text-sm font-medium ${error ? "text-red-600" : "text-gray-700"} mb-1`}>
+          {label}
+        </label>
       )}
-      ref={ref}
-      {...props}
-    />
+      <textarea
+        id={id}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        disabled={disabled}
+        readOnly={readOnly}
+        rows={rows}
+        className={`
+          block w-full rounded-md border-gray-300 shadow-sm 
+          focus:border-primary-500 focus:ring-primary-500 sm:text-sm
+          ${error ? "border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500" : ""}
+          ${disabled ? "opacity-50 cursor-not-allowed bg-gray-50" : ""}
+          ${readOnly ? "cursor-default bg-gray-50" : ""}
+        `}
+        aria-invalid={error ? "true" : "false"}
+        {...props}
+      />
+      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+    </div>
   )
-})
-Textarea.displayName = "Textarea"
-
-export { Textarea }
-
+}

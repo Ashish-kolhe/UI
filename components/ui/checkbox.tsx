@@ -35,4 +35,3 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(({ className,
 Checkbox.displayName = "Checkbox"
 
 export { Checkbox }
-

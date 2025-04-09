@@ -33,4 +33,3 @@ export function ComponentCard({ title, description, href, className }: Component
     </Link>
   )
 }
-

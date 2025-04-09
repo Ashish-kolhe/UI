@@ -117,4 +117,3 @@ export default function SliderPage() {
     </div>
   )
 }
-

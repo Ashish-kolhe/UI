@@ -1,78 +1,73 @@
 "use client"
 
-import React from "react"
-import { cn } from "@/lib/utils"
+import { useId, useState } from "react"
 
-interface RadioGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+interface RadioGroupProps {
+  options: { value: string; label: string; description?: string }[]
+  name: string
   defaultValue?: string
-  value?: string
-  onValueChange?: (value: string) => void
+  onChange?: (value: string) => void
+  disabled?: boolean
+  className?: string
+  orientation?: "horizontal" | "vertical"
 }
 
-const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
-  ({ className, defaultValue, value, onValueChange, ...props }, ref) => {
-    const [selectedValue, setSelectedValue] = React.useState(value || defaultValue)
+export function RadioGroup({
+  options,
+  name,
+  defaultValue,
+  onChange,
+  disabled = false,
+  className = "",
+  orientation = "vertical",
+}: RadioGroupProps) {
+  const [selectedValue, setSelectedValue] = useState(defaultValue || "")
+  const groupId = useId()
 
-    React.useEffect(() => {
-      if (value !== undefined) {
-        setSelectedValue(value)
-      }
-    }, [value])
+  const handleChange = (value: string) => {
+    setSelectedValue(value)
+    onChange?.(value)
+  }
 
-    const handleValueChange = (newValue: string) => {
-      setSelectedValue(newValue)
-      onValueChange?.(newValue)
-    }
+  return (
+    <div className={`${orientation === "horizontal" ? "flex space-x-6" : "space-y-3"} ${className}`} role="radiogroup">
+      {options.map((option) => {
+        const id = `${groupId}-${option.value}`
+        const isSelected = selectedValue === option.value
 
-    return (
-      <div ref={ref} className={cn("grid gap-2", className)} {...props} data-value={selectedValue}>
-        {React.Children.map(props.children, (child) => {
-          if (React.isValidElement(child)) {
-            return React.cloneElement(child as React.ReactElement<any>, {
-              selectedValue,
-              onValueChange: handleValueChange,
-            })
-          }
-          return child
-        })}
-      </div>
-    )
-  },
-)
-RadioGroup.displayName = "RadioGroup"
-
-interface RadioGroupItemProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  value: string
-  selectedValue?: string
-  onValueChange?: (value: string) => void
+        return (
+          <div key={option.value} className={`flex items-start ${orientation === "horizontal" ? "" : "space-x-2"}`}>
+            <div className="flex items-center h-5">
+              <input
+                id={id}
+                name={name}
+                type="radio"
+                value={option.value}
+                checked={isSelected}
+                onChange={() => handleChange(option.value)}
+                disabled={disabled}
+                className="h-4 w-4 cursor-pointer border-gray-300 text-primary focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-describedby={option.description ? `${id}-description` : undefined}
+              />
+            </div>
+            <div className="ml-2 text-sm">
+              <label
+                htmlFor={id}
+                className={`font-medium ${
+                  disabled ? "text-gray-400" : "text-gray-900 dark:text-gray-100"
+                } cursor-pointer`}
+              >
+                {option.label}
+              </label>
+              {option.description && (
+                <p id={`${id}-description`} className="text-gray-500 dark:text-gray-400">
+                  {option.description}
+                </p>
+              )}
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
 }
-
-const RadioGroupItem = React.forwardRef<HTMLInputElement, RadioGroupItemProps>(
-  ({ className, value, selectedValue, onValueChange, ...props }, ref) => {
-    const isChecked = selectedValue === value
-
-    return (
-      <div className="relative flex items-center">
-        <input
-          type="radio"
-          ref={ref}
-          className={cn(
-            "peer h-4 w-4 shrink-0 rounded-full border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-            className,
-          )}
-          value={value}
-          checked={isChecked}
-          onChange={() => onValueChange?.(value)}
-          {...props}
-        />
-        <div className="absolute left-0 top-0 h-4 w-4 rounded-full pointer-events-none flex items-center justify-center">
-          <div className={cn("h-2 w-2 rounded-full bg-primary", isChecked ? "opacity-100" : "opacity-0")} />
-        </div>
-      </div>
-    )
-  },
-)
-RadioGroupItem.displayName = "RadioGroupItem"
-
-export { RadioGroup, RadioGroupItem }
-

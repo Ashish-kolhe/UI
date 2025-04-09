@@ -41,4 +41,3 @@ const ToastAction = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttribut
 ToastAction.displayName = "ToastAction"
 
 export { Toast, ToastAction }
-

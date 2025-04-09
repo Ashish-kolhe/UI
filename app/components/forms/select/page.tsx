@@ -1,15 +1,5 @@
 import type { Metadata } from "next"
 import { ComponentPreview } from "@/components/component-preview"
-import { Label } from "@/components/ui/label"
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 
 export const metadata: Metadata = {
   title: "Select - UI Library",
@@ -30,75 +20,68 @@ export default function SelectPage() {
         <ComponentPreview
           title="Default Select"
           description="The default select style."
-          code={`<Select>
-  <SelectTrigger className="w-[180px]">
-    <SelectValue placeholder="Select a fruit" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectGroup>
-      <SelectItem value="apple">Apple</SelectItem>
-      <SelectItem value="banana">Banana</SelectItem>
-      <SelectItem value="orange">Orange</SelectItem>
-      <SelectItem value="grape">Grape</SelectItem>
-      <SelectItem value="pear">Pear</SelectItem>
-    </SelectGroup>
-  </SelectContent>
-</Select>`}
+          code={`<select class="flex h-10 w-[180px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+  <option value="" disabled selected>Select a fruit</option>
+  <option value="apple">Apple</option>
+  <option value="banana">Banana</option>
+  <option value="orange">Orange</option>
+  <option value="grape">Grape</option>
+  <option value="pear">Pear</option>
+</select>`}
           preview={
-            <Select>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Select a fruit" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectItem value="apple">Apple</SelectItem>
-                  <SelectItem value="banana">Banana</SelectItem>
-                  <SelectItem value="orange">Orange</SelectItem>
-                  <SelectItem value="grape">Grape</SelectItem>
-                  <SelectItem value="pear">Pear</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
+            <select className="flex h-10 w-[180px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+              <option value="" disabled selected>
+                Select a fruit
+              </option>
+              <option value="apple">Apple</option>
+              <option value="banana">Banana</option>
+              <option value="orange">Orange</option>
+              <option value="grape">Grape</option>
+              <option value="pear">Pear</option>
+            </select>
           }
         />
 
         <ComponentPreview
           title="Select with Label"
           description="Select with an associated label."
-          code={`<div className="grid w-full max-w-sm items-center gap-1.5">
-  <Label htmlFor="country">Country</Label>
-  <Select>
-    <SelectTrigger id="country">
-      <SelectValue placeholder="Select a country" />
-    </SelectTrigger>
-    <SelectContent>
-      <SelectGroup>
-        <SelectItem value="us">United States</SelectItem>
-        <SelectItem value="ca">Canada</SelectItem>
-        <SelectItem value="uk">United Kingdom</SelectItem>
-        <SelectItem value="au">Australia</SelectItem>
-        <SelectItem value="jp">Japan</SelectItem>
-      </SelectGroup>
-    </SelectContent>
-  </Select>
+          code={`<div class="grid w-full max-w-sm items-center gap-1.5">
+  <label for="country" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+    Country
+  </label>
+  <select 
+    id="country" 
+    class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+  >
+    <option value="" disabled selected>Select a country</option>
+    <option value="us">United States</option>
+    <option value="ca">Canada</option>
+    <option value="uk">United Kingdom</option>
+    <option value="au">Australia</option>
+    <option value="jp">Japan</option>
+  </select>
 </div>`}
           preview={
             <div className="grid w-full max-w-sm items-center gap-1.5">
-              <Label htmlFor="country">Country</Label>
-              <Select>
-                <SelectTrigger id="country">
-                  <SelectValue placeholder="Select a country" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectItem value="us">United States</SelectItem>
-                    <SelectItem value="ca">Canada</SelectItem>
-                    <SelectItem value="uk">United Kingdom</SelectItem>
-                    <SelectItem value="au">Australia</SelectItem>
-                    <SelectItem value="jp">Japan</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
+              <label
+                htmlFor="country"
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              >
+                Country
+              </label>
+              <select
+                id="country"
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <option value="" disabled selected>
+                  Select a country
+                </option>
+                <option value="us">United States</option>
+                <option value="ca">Canada</option>
+                <option value="uk">United Kingdom</option>
+                <option value="au">Australia</option>
+                <option value="jp">Japan</option>
+              </select>
             </div>
           }
         />
@@ -106,63 +89,78 @@ export default function SelectPage() {
         <ComponentPreview
           title="Select with Groups"
           description="Select with grouped options."
-          code={`<Select>
-  <SelectTrigger className="w-[280px]">
-    <SelectValue placeholder="Select a timezone" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectGroup>
-      <SelectLabel>North America</SelectLabel>
-      <SelectItem value="est">Eastern Standard Time (EST)</SelectItem>
-      <SelectItem value="cst">Central Standard Time (CST)</SelectItem>
-      <SelectItem value="mst">Mountain Standard Time (MST)</SelectItem>
-      <SelectItem value="pst">Pacific Standard Time (PST)</SelectItem>
-    </SelectGroup>
-    <SelectGroup>
-      <SelectLabel>Europe</SelectLabel>
-      <SelectItem value="gmt">Greenwich Mean Time (GMT)</SelectItem>
-      <SelectItem value="cet">Central European Time (CET)</SelectItem>
-      <SelectItem value="eet">Eastern European Time (EET)</SelectItem>
-    </SelectGroup>
-    <SelectGroup>
-      <SelectLabel>Asia</SelectLabel>
-      <SelectItem value="jst">Japan Standard Time (JST)</SelectItem>
-      <SelectItem value="cst-asia">China Standard Time (CST)</SelectItem>
-      <SelectItem value="ist">India Standard Time (IST)</SelectItem>
-    </SelectGroup>
-  </SelectContent>
-</Select>`}
+          code={`<select class="flex h-10 w-[280px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+  <option value="" disabled selected>Select a timezone</option>
+  <optgroup label="North America">
+    <option value="est">Eastern Standard Time (EST)</option>
+    <option value="cst">Central Standard Time (CST)</option>
+    <option value="mst">Mountain Standard Time (MST)</option>
+    <option value="pst">Pacific Standard Time (PST)</option>
+  </optgroup>
+  <optgroup label="Europe">
+    <option value="gmt">Greenwich Mean Time (GMT)</option>
+    <option value="cet">Central European Time (CET)</option>
+    <option value="eet">Eastern European Time (EET)</option>
+  </optgroup>
+  <optgroup label="Asia">
+    <option value="jst">Japan Standard Time (JST)</option>
+    <option value="cst-asia">China Standard Time (CST)</option>
+    <option value="ist">India Standard Time (IST)</option>
+  </optgroup>
+</select>`}
           preview={
-            <Select>
-              <SelectTrigger className="w-[280px]">
-                <SelectValue placeholder="Select a timezone" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>North America</SelectLabel>
-                  <SelectItem value="est">Eastern Standard Time (EST)</SelectItem>
-                  <SelectItem value="cst">Central Standard Time (CST)</SelectItem>
-                  <SelectItem value="mst">Mountain Standard Time (MST)</SelectItem>
-                  <SelectItem value="pst">Pacific Standard Time (PST)</SelectItem>
-                </SelectGroup>
-                <SelectGroup>
-                  <SelectLabel>Europe</SelectLabel>
-                  <SelectItem value="gmt">Greenwich Mean Time (GMT)</SelectItem>
-                  <SelectItem value="cet">Central European Time (CET)</SelectItem>
-                  <SelectItem value="eet">Eastern European Time (EET)</SelectItem>
-                </SelectGroup>
-                <SelectGroup>
-                  <SelectLabel>Asia</SelectLabel>
-                  <SelectItem value="jst">Japan Standard Time (JST)</SelectItem>
-                  <SelectItem value="cst-asia">China Standard Time (CST)</SelectItem>
-                  <SelectItem value="ist">India Standard Time (IST)</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
+            <select className="flex h-10 w-[280px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+              <option value="" disabled selected>
+                Select a timezone
+              </option>
+              <optgroup label="North America">
+                <option value="est">Eastern Standard Time (EST)</option>
+                <option value="cst">Central Standard Time (CST)</option>
+                <option value="mst">Mountain Standard Time (MST)</option>
+                <option value="pst">Pacific Standard Time (PST)</option>
+              </optgroup>
+              <optgroup label="Europe">
+                <option value="gmt">Greenwich Mean Time (GMT)</option>
+                <option value="cet">Central European Time (CET)</option>
+                <option value="eet">Eastern European Time (EET)</option>
+              </optgroup>
+              <optgroup label="Asia">
+                <option value="jst">Japan Standard Time (JST)</option>
+                <option value="cst-asia">China Standard Time (CST)</option>
+                <option value="ist">India Standard Time (IST)</option>
+              </optgroup>
+            </select>
           }
         />
+
+        <div className="space-y-4 rounded-lg border p-6">
+          <h2 className="text-xl font-bold">Implementation Notes</h2>
+          <p>
+            This select component is implemented using the native HTML select element with Tailwind CSS styling. It
+            provides a way to choose a single value from a list of options.
+          </p>
+          <p className="mt-2">The select includes:</p>
+          <ul className="list-disc pl-6 space-y-2 mt-2">
+            <li>Custom styling for the select element</li>
+            <li>Support for option groups</li>
+            <li>Focus and disabled states</li>
+            <li>Associated label styling</li>
+          </ul>
+          <p className="text-sm text-muted-foreground mt-4">
+            To use this component in your project, simply copy the HTML with the Tailwind classes. You can customize the
+            appearance by modifying the classes.
+          </p>
+          <div className="mt-4 rounded-md bg-muted p-4">
+            <p className="text-sm font-medium mb-2">For a more advanced implementation, consider:</p>
+            <ul className="list-disc pl-6 space-y-1 text-sm">
+              <li>Adding a custom dropdown icon</li>
+              <li>Creating a custom select component with better styling control</li>
+              <li>Adding search functionality for long option lists</li>
+              <li>Supporting multi-select functionality</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   )
 }
-

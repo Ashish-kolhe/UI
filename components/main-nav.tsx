@@ -9,7 +9,7 @@ export function MainNav() {
   return (
     <div className="mr-4 flex">
       <Link href="/" className="mr-6 flex items-center space-x-2">
-        <span className="font-bold text-lg">UI 4 You</span>
+        <span className="font-bold text-lg">UI Library</span>
       </Link>
       <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
         <Link
@@ -45,4 +45,3 @@ export function MainNav() {
     </div>
   )
 }
-

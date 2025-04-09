@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, Github, Instagram, Linkedin, Twitter } from "lucide-react"
-import { SiteHeader } from "@/components/site-header"
+import { ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Documentation - UI Library",
@@ -10,9 +9,8 @@ export const metadata: Metadata = {
 
 export default function DocsPage() {
   return (
-    <div className="container ">
-      <SiteHeader/>
-      <div className="mx-auto max-w-5xl space-y-12 pt-4">
+    <div className="container py-12 md:py-16">
+      <div className="mx-auto max-w-5xl space-y-12">
         <div className="space-y-4">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Documentation</h1>
           <p className="text-lg text-muted-foreground max-w-3xl">
@@ -267,48 +265,6 @@ export function cn(...inputs: ClassValue[]) {
           </div>
         </div>
       </div>
-      <footer className="border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-          <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            Made with ❤️ by Ashish. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4">
-            <Link
-              href="https://x.com/AshishKolhe_"
-             
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <Twitter className="h-5 w-5" />
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link
-              href="https://instagram.com/ashishkolhe_"
-              
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <Instagram className="h-5 w-5" />
-              <span className="sr-only">Instagram</span>
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/ashish-kolhe-b4800b343"
-             
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <Linkedin className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
-            </Link>
-            <Link
-              href="https://github.com/Ashish-kolhe"
-             
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <Github className="h-5 w-5" />
-              <span className="sr-only">GitHub</span>
-            </Link>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
-

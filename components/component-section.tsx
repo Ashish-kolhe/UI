@@ -37,4 +37,3 @@ export function ComponentSection({ title, description, components }: ComponentSe
     </div>
   )
 }
-
